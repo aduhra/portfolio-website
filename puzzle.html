@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="puzzle.css">
+    <title>WordLok</title>
+</head>
+<body>                                                                                                                                                                                                                                                    
+    <header>
+        <nav>
+            <h1><a href="index.html">Word Lok</a></h1>
+            <ul>
+                <li class="open-pop-menu" onclick="openPopup()">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 439.488 443.88"><path d="M219.744 443.88c121.359 0 219.744-99.37 219.744-221.94C439.488 99.368 341.103 0 219.744 0 98.387 0 0 99.368 0 221.94c0 122.57 98.387 221.94 219.744 221.94z" stroke="none" fill="#fcfcfc" class="fill-000000"></path><path d="M219.744 392.714c93.384 0 169.086-76.459 169.086-170.774 0-94.317-75.702-170.774-169.086-170.774-93.382 0-169.085 76.457-169.085 170.774 0 94.315 75.703 170.774 169.085 170.774z" stroke="none" fill="#000000" class="fill-ffffff"></path><path d="m196.963 300.274 49.531-.102V261.69c0-10.438 4.866-20.3 17.886-28.841 13.019-8.537 49.364-25.861 49.364-71.409 0-45.55-38.167-76.858-70.25-83.5-32.078-6.642-66.835-2.272-91.5 24.75-22.087 24.197-26.741 43.337-26.741 85.565h49.491v-9.815c0-22.501 2.603-46.254 34.75-52.75 17.546-3.546 33.994 1.958 43.75 11.5 11.16 10.912 11.25 35.5-6.533 47.743l-27.896 18.979c-16.272 10.438-21.852 22.059-21.852 39.139v57.223zM196.638 370.692v-51.005h50.212v51.005h-50.212z" stroke="none" fill="#fcfcfc" class="fill-000000"></path></svg>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+
+    <div class="howtoplay-popup" id="popup">
+        <div class="close-icon" onclick="closePopup()"><svg  viewBox="0 0 32 32" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"><path fill="none" d="M0 0h32v32H0z"></path><path d="m2 26 4 4 10-10 10 10 4-4-10-10L30 6l-4-4-10 10L6 2 2 6l10 10z" fill="#ffffff" class="fill-000000"></path></svg></div>
+        <h1>how to play</h1>
+        <h2>find all letters in the word in 11 moves.</h2>
+        <ul>
+            <li>You have only 5 seconds to memorize the position of the word's letter on the grid before it is hidden</li>
+            <li>Once the grid is hidden, your task is to click on the squares of the grid that correspond to the correct position of each letter in the word</li>
+            <li>You only have 11moves; meaning you can only click on the grid squares 11 times before the game ends</li>
+            <li>If you select the correct squares for a letter, it will be marked as found and stay open</li>
+            <li>If you select the wrong squares for a letter, it won't be marked and will close</li>
+            <li>Once you have located all the letters of the word before the 11 moves is up, You have successfully completed the round and can move on to the next game!</li>
+            <li>If you can't find all the letters in the word before the 11 moves is up, then you failed and can try again</li>
+            
+            
+        </ul>
+    </div>    
+   
+    <div class="overlay" id="overlay"></div>
+    <div class="content-wrapper" id="content-wrapper">
+        <div id="countdown-display">5</div>
+        <div class="word" id="word-to-find"> Find the word: </div>
+        <div class="game-container" id="game-container"></div>
+
+        <div class="moves" id="moves-to-try"> moves left: 11 </div>
+
+        <div id="result-popup" class="popup-overlay">
+            <div class="popup-content">
+                <span id="close-popup" class="close-icon">&times;</span>
+                <h3 id="result-message" class="result-message"></h3>
+                <span id="icon-container"></span>
+                <div id="finalBoard" class="board"></div>
+                <button id="restart-game" class="restart-game">New Game</button>
+            </div>
+        </div>
+        
+
+        <button class="restart-game" id="new-game">New Game</button>
+        
+    </div>
+
+    <script type="module" src="app.js" defer></script>
+    
+</body>
+</html>

@@ -1,0 +1,276 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    color:#fff;
+    
+}
+
+body{
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  background-color: #1d1d1d;
+}
+
+
+.content-wrapper{
+    margin: 1.5em;
+    text-align: center;
+
+}
+
+ header{
+  margin:5px 0 ;
+  border: none;
+    
+ }
+ nav{
+    padding: 5px 40px;
+    display: flex;
+    justify-content: space-between;
+    
+ }
+
+ header svg{
+    width: 1.6em;
+    cursor: pointer;
+
+ }
+h1 a{
+  text-decoration: none;
+  font-size: 0.9em;
+}
+ nav ul{
+    list-style-type: none;
+ }
+
+ .howtoplay-popup{
+   width: 70vw;
+   max-width: 100%;
+   height: auto;
+   font-size: 14px;
+   background: #171717;
+   border-radius: 6px;
+   color: #fff;
+   position:absolute;
+   top: 50vh;
+   left: 50vw;
+   transform: translate( -50%, -50%) scale(0.1);
+   visibility: hidden;
+   text-align: left;
+   line-height: 2em;
+   padding: 10px 30px;
+   color: #333;
+   transition: transform 0.4s, visibilty 0.4s;
+   box-shadow: 0 5px 5px rgba(216, 216, 216, 0.2);
+   z-index: 1000;
+  
+ }
+
+ .open-popup{
+   visibility: visible;
+   transform: translate( -50%, -50%) scale(1);
+
+
+ }
+
+ .close-icon{
+   width: 0.5em;
+   position: absolute;
+   top: 10px;
+   right: 15px;
+   cursor: pointer;
+ }
+
+ .howtoplay-popup h1{
+   margin-top: 50px;
+ }
+
+ .howtoplay-popup h1,  .howtoplay-popup h2,  .howtoplay-popup ul,  .howtoplay-popup li{
+   background: #171717;
+   color: #fff;
+   padding: 8px;
+ }
+
+
+ .word{
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    margin-bottom: 1.3em;
+ }
+
+.game-container{
+  margin: 1.5em;
+  display:grid;
+  justify-content: center;
+  align-content: center;
+  grid-template-columns: repeat(5, 3.5em);
+  grid-template-rows: repeat(4, 3.5em);
+  gap: 0.5em;
+  }
+
+.tile{
+  width: 50px;
+  height: 50px;
+  perspective: 100px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+#countdown-display{
+  font-size: 1.9em;
+  font-weight: bold;
+  margin-bottom: 25px;
+  
+}
+
+.tile-inner{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style:preserve-3d;
+  transition: transform 0.5s;
+}
+
+.tile.flipped .tile-inner{
+  transform: rotateY(180deg);
+}
+
+.tile-front, .tile-back{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+.tile-front{
+  background-color: #fff;
+}
+
+.tile-back{
+  background-color: #454545;
+  color:#fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotateY(180deg);
+}
+
+.tile.disabled{
+  pointer-events: none;
+}
+
+.overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  z-index: 999;
+}
+
+
+/* Add some basic styling for the result popup in your CSS */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0,0.8);
+  display: none; /* Initially hidden */
+  justify-content: center;
+
+}
+
+.popup-content {
+  position: relative;
+  top: 10%;
+  background: #b8b8b8;
+  padding: 50px 50px 0px 50px;
+  border-radius: 8px;
+  border: 1px solid #fff;
+  text-align: center;
+  width: 30%;
+  height: 250px;
+  border-radius: 15px;
+  box-shadow: 5px 5px 5px rgba(216, 216, 216, 0.2), -5px -5px -5px rgba(216, 216, 216, 0.2);
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+ .close-icon {
+  position: absolute;
+  top: 10px;
+  right: 40px;
+  font-size: 2.5em;
+  cursor: pointer;
+  color: #222;
+}
+
+.result-message{
+  color: #222;
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.restart-game{
+  color: #ffffff;
+  margin-top: 50px;
+  border-radius: 5px;
+  border: none;
+  background-color: #3ea534;
+  padding:10px;
+  width: 170px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.moves{
+  font-size: 1.2em;
+  
+}
+
+@media(max-width: 768px){
+
+  .game-container{
+    grid-template-columns: repeat(5, 3.5em);
+    grid-template-rows: repeat(4, 3.5em);
+  }
+
+  .tile{
+    width: 50px;
+    height: 50px;
+  }
+
+  .popup-content {
+    padding: 30px;
+    width: 70%;
+  }
+
+  .restart-game{
+    padding:10px;
+    width: 150px;
+  }
+
+  .close-icon {
+    right: 30px;
+    font-size: 2em;
+  }
+
+  .howtoplay-popup{
+    font-size: 10px;
+    width: 90vw;
+    height: auto;
+
+  }
+  
+}
+
+
