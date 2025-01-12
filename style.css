@@ -9,7 +9,8 @@ body {
   }
 
   #about{
-     padding: 2rem;
+    padding: 2rem;
+    max-width: 900px;
     margin: 0 auto;
   }
   
